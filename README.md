@@ -105,40 +105,15 @@ JWT/OAuth2 flow, appropriate for a single-department demo (see "Things to Add" b
 demo/grading purposes here, but it must never be used without TLS in a real deployment, since
 credentials would otherwise be sent in the clear.
 
-## Running locally
-
-**Option A - H2, no Docker:**
-
-```bash
-./gradlew bootRun --args='--spring.profiles.active=h2'
-```
-
-**Option B - Postgres via docker-compose:**
-
-```bash
-docker compose up -d postgres
-./gradlew bootRun
-```
-
-The app defaults to Postgres (`localhost:5432/attendance`, user/password `attendance`); the
-`h2` Spring profile switches to an in-memory H2 database instead. Opening this repo in a
-Codespace/devcontainer (`.devcontainer/devcontainer.json`) already gives you JDK 21, the
-Gradle wrapper, and a linked Postgres container.
-
 ## Tests
 
 ```bash
 ./gradlew test
 ```
 
-Tests run against H2 by default (`src/test/resources/application.yml` activates the `h2`
-profile), so no Docker/Postgres is needed locally. CI additionally runs the same suite against
-a real Postgres service container, so both the fast local path and the production-like path
-are exercised.
-
 ## Things to Add
 
-Intentionally out of scope for this portfolio-scale project:
+todo at some point:
 
 - **Multi-department / multi-tenant support** - everything here assumes a single company/department.
 - **Payroll calculation integration** - attendance and leave data isn't wired to any payroll system.
