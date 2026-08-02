@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: attendance-system
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/attendance}
+    username: ${SPRING_DATASOURCE_USERNAME:attendance}
+    password: ${SPRING_DATASOURCE_PASSWORD:attendance}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+  h2:
+    console:
+      enabled: false
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html

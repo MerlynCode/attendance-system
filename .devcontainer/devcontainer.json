@@ -1,0 +1,13 @@
+{
+  "name": "Attendance System",
+  "dockerComposeFile": ["../docker-compose.yml"],
+  "service": "app",
+  "workspaceFolder": "/workspaces/attendance-system",
+  "customizations": {
+    "vscode": {
+      "extensions": ["vscjava.vscode-java-pack", "fwcd.kotlin"]
+    }
+  },
+  "forwardPorts": [8080, 5432],
+  "postCreateCommand": "chmod +x gradlew"
+}
